@@ -62,11 +62,13 @@ public class LoginService implements UserDetailsService{
 		    if (login != null) {
 		      builder = org.springframework.security.core.userdetails.User.withUsername(username);
 		      builder.password(login.getSenha());
-		      if(login.getAprovado() == 10) {
-			      builder.roles("ADMIN");
+		      if(login.getAprovado() == 0) {
+			      builder.roles("TECNICO");
 		      } else if (login.getAprovado() == 1) {
-		    	  builder.roles("USER");
-		      } else {
+		    	  builder.roles("ADMINISTRADOR");
+		      } else if (login.getAprovado() == 2) {
+		    	  builder.roles("SISTEMA");
+		      }else {
 		    	  builder.roles("FORBIDEN");
 		      }
 		    } else {

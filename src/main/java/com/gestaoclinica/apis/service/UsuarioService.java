@@ -123,7 +123,7 @@ public class UsuarioService {
 				objEcp = obj;
 				objEcp.setSenha(new BCryptPasswordEncoder().encode(obj.getSenha()));
 				objEcp.setSenhaConfirm(new BCryptPasswordEncoder().encode(obj.getSenhaConfirm()));	
-				obj.setAprovado(0);
+				obj.setAprovado(obj.getAprovado());
 
 				loginService.saveLoginCorretor(objEcp);
 				repository.save(objEcp);

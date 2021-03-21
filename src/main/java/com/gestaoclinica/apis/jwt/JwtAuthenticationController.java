@@ -44,11 +44,7 @@ public class JwtAuthenticationController {
 		
 		usuarioAprovado = corretorService.findById(authenticationRequest.getCpf());
 		
-		if (usuarioAprovado.getAprovado() == 0) {
-			throw new CorretorPendenteAprovacaoException("Pendente aprovação.");
-		} else if (usuarioAprovado.getAprovado() == 3) {
-			throw new CorretorNegadoException ("Não aprovado.");
-		} 
+		
 		authenticate1(authenticationRequest.getCpf(), authenticationRequest.getSenha());
 		final Login login = loginService.findByCpf(authenticationRequest.getCpf());
 		final String token = jwtTokenUtil.generateToken(login);

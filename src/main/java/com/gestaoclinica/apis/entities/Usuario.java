@@ -35,10 +35,6 @@ public class Usuario implements Serializable{
 	private String senhaConfirm;
 	@NotEmpty
 	private String email;
-	@NotNull
-	private Long cepResidencia;
-	@NotNull
-	private Long numeroResidencia;
 
 	@NotNull
 	private Integer aprovado;
@@ -103,21 +99,7 @@ public class Usuario implements Serializable{
 		this.email = email;
 	}
 
-	public Long getCepResidencia() {
-		return cepResidencia;
-	}
-
-	public void setCepResidencia(Long cepResidencia) {
-		this.cepResidencia = cepResidencia;
-	}
-
-	public Long getNumeroResidencia() {
-		return numeroResidencia;
-	}
-
-	public void setNumeroResidencia(Long numeroResidencia) {
-		this.numeroResidencia = numeroResidencia;
-	}
+	
 
 	public Integer getAprovado() {
 		return aprovado;

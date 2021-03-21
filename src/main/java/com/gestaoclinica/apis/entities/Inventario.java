@@ -45,6 +45,13 @@ public class Inventario implements Serializable {
 	private String anoAquisicao;
 	private String inicioGarantia;
 	private String expiracaoGarantia;
+	private Double potencia;
+	private Double corrente;
+	private String alimentacaoEletrica;
+	private Double peso;
+	private Double altura;
+	private Double largura;
+	private Double comprimento;
 	private String registroAnvisa;
 	private Date anoFabricacao;
 	private Date dataCompra;
@@ -70,6 +77,66 @@ public class Inventario implements Serializable {
 
 	public String getInventario() {
 		return inventario;
+	}
+	
+	
+	public Double getPotencia() {
+		return potencia;
+	}
+
+
+	public void setPotencia(Double potencia) {
+		this.potencia = potencia;
+	}
+
+
+	public Double getCorrente() {
+		return corrente;
+	}
+
+
+	public void setCorrente(Double corrente) {
+		this.corrente = corrente;
+	}
+
+
+	public Double getPeso() {
+		return peso;
+	}
+
+
+	public void setPeso(Double peso) {
+		this.peso = peso;
+	}
+
+
+	public Double getAltura() {
+		return altura;
+	}
+
+
+	public void setAltura(Double altura) {
+		this.altura = altura;
+	}
+
+
+	public Double getLargura() {
+		return largura;
+	}
+
+
+	public void setLargura(Double largura) {
+		this.largura = largura;
+	}
+
+
+	public Double getComprimento() {
+		return comprimento;
+	}
+
+
+	public void setComprimento(Double comprimento) {
+		this.comprimento = comprimento;
 	}
 
 
