@@ -26,17 +26,17 @@ public class Entrega implements Serializable{
 	
 	private Long cpf;
 	@NotNull
-	private Long cnpjUsuario;
+	private Long cnpjTransportadora;
 	@NotNull
 	private Long cepOrigem;
 
 
 
-	public Entrega(Long id, Long cpf, @NotNull Long cnpjUsuario, @NotNull Long cepOrigem) {
+	public Entrega(Long id, Long cpf, @NotNull Long cnpjTransportadora, @NotNull Long cepOrigem) {
 		super();
 		this.id = id;
 		this.cpf = cpf;
-		this.cnpjUsuario = cnpjUsuario;
+		this.cnpjTransportadora = cnpjTransportadora;
 		this.cepOrigem = cepOrigem;
 	}
 	public Entrega() {
@@ -62,13 +62,13 @@ public class Entrega implements Serializable{
 	}
 
 
-	public Long getCnpjUsuario() {
-		return cnpjUsuario;
+	public Long getCnpjTransportadora() {
+		return cnpjTransportadora;
 	}
 
 
-	public void setCnpjUsuario(Long cnpjUsuario) {
-		this.cnpjUsuario = cnpjUsuario;
+	public void setCnpjTransportadora(Long cnpjTransportadora) {
+		this.cnpjTransportadora = cnpjTransportadora;
 	}
 
 

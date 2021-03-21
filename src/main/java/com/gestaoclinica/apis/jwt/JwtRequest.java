@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class JwtRequest implements Serializable {
 	private static final long serialVersionUID = 5926468583005150707L;
-	private Long cnpj;
+	private Long cpf;
 	private String senha;
 	
 
@@ -12,19 +12,19 @@ public class JwtRequest implements Serializable {
 	public JwtRequest() {
 	}
 
-	public JwtRequest(Long cnpj, String senha) {
-		this.setCnpj(cnpj);
+	public JwtRequest(Long cpf, String senha) {
+		this.setCpf(cpf);
 		this.setSenha(senha);
 	}
 
 
 
-	public Long getCnpj() {
-		return cnpj;
+	public Long getCpf() {
+		return cpf;
 	}
 
-	public void setCnpj(Long cnpj) {
-		this.cnpj = cnpj;
+	public void setCpf(Long cpf) {
+		this.cpf = cpf;
 	}
 
 	public String getSenha() {

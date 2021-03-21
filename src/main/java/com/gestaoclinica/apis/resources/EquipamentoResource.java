@@ -13,24 +13,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.gestaoclinica.apis.entities.Inventario;
-import com.gestaoclinica.apis.service.InventarioService;
+import com.gestaoclinica.apis.entities.Equipamento;
+import com.gestaoclinica.apis.entities.Equipamento;
+import com.gestaoclinica.apis.service.EquipamentoService;
 
 @RestController
-@RequestMapping (value = "/inventario")
-public class InventarioResource {
+@RequestMapping (value = "/equipamento")
+public class EquipamentoResource {
 	
 	@Autowired
-	private InventarioService service;
+	private EquipamentoService service;
 	
 	@GetMapping
-	public ResponseEntity<List<Inventario>> findAll(){
-		List<Inventario> obj = service.findAll();
+	public ResponseEntity<List<Equipamento>> findAll(){
+		List<Equipamento> obj = service.findAll();
 		return ResponseEntity.ok().body(obj);
 	}
 
 	@PostMapping
-	public ResponseEntity<Inventario> insert (@RequestBody Inventario obj){
+	public ResponseEntity<Equipamento> insert (@RequestBody Equipamento obj){
 		obj = service.insert(obj);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
 				  .buildAndExpand(obj).toUri();
@@ -38,7 +39,7 @@ public class InventarioResource {
 	}
 
 	@PostMapping(value = "/deletar")
-	public ResponseEntity<Inventario> delete (@RequestBody Inventario obj){
+	public ResponseEntity<Equipamento> delete (@RequestBody Equipamento obj){
 		obj = service.delete(obj);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
 				  .buildAndExpand(obj).toUri();

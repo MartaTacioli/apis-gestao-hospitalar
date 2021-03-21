@@ -16,14 +16,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.gestaoclinica.apis.entities.Regiao;
 import com.gestaoclinica.apis.entities.Usuario;
-import com.gestaoclinica.apis.entities.matrix.Nota;
-import com.gestaoclinica.apis.entities.matrix.NotaRequest;
 import com.gestaoclinica.apis.service.UsuarioService;
 
 @RestController
-@RequestMapping (value = "/Usuario")
+@RequestMapping (value = "/usuario")
 public class UsuarioResource {
 	
 	@Autowired	
@@ -37,28 +34,7 @@ public class UsuarioResource {
 	
 	
 	
-	@GetMapping(value = "/preco/{cnpj}/{km}")
-	public double calcularPreco (@Valid @PathVariable Long cnpj, @Valid @PathVariable double km){
-		
-		double valor = service.calcularPreco(cnpj,km);
-		return valor;
-	}
-	
-	@PostMapping(value = "/filter/regiao")
-	public ResponseEntity<List<Usuario>> findAllByRegiao (@RequestBody List<Regiao> obj){
-		
-		List<Usuario> list = service.findAllByRegiao(obj);
-		return ResponseEntity.ok().body(list);
-	}
-	
-	
-	@PostMapping(value = "/filter/regiao/quantidade")
-	public ResponseEntity<Integer> findAllByRegiaoCount (@RequestBody List<Regiao> obj){
-		var count = 0;
-		count = service.findAllByRegiao(obj).size();
-		return ResponseEntity.ok().body(count);
-	}
-	
+
 	
 
 	@GetMapping(value = "/pendentes")
@@ -67,14 +43,11 @@ public class UsuarioResource {
 		return ResponseEntity.ok().body(list);
 	}
 
-	@PutMapping(value = "/atualizar")
-	public ResponseEntity<Usuario> atualizarUsuario (@RequestBody Usuario obj){
-		System.out.println("entrou no put pelo menos");
-		obj = service.atualizarUsuario(obj);
-		System.out.println("entrou no put");
-	 return ResponseEntity.ok().body(obj);
-	}
-	
+	/*
+	 * @PutMapping(value = "/atualizar") public ResponseEntity<Usuario>
+	 * atualizarUsuario (@RequestBody Usuario obj){ obj =
+	 * service.atualizarTransportadora(obj); return ResponseEntity.ok().body(obj); }
+	 */
 	
 	@GetMapping(value = "/{cpf}")
 	public ResponseEntity<Usuario> findById(@Valid @PathVariable Long cpf){
@@ -90,7 +63,7 @@ public class UsuarioResource {
 		
 		obj = service.insert(obj);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-				  .buildAndExpand(obj.getCnpj()).toUri();
+				  .buildAndExpand(obj.getCpf()).toUri();
 		return ResponseEntity.created(uri).body(obj);
 	}
 	
@@ -98,20 +71,15 @@ public class UsuarioResource {
 	
 	@PutMapping(value = "/pendentes/aprovar")
 	public ResponseEntity<List<Usuario>> aprovarUsuarios (@RequestBody List<Usuario> obj){
-		System.out.println("entrou no put pelo menos");
 		obj = service.aprovarUsuarios(obj);
-		System.out.println("entrou no put");
 	 return ResponseEntity.ok().body(obj);
 	}
 	
-	
-	@PutMapping(value = "/tipo-de-preco")
-	public ResponseEntity<Usuario> atualizarEscolhaPreco (@RequestBody Usuario obj){
-		System.out.println("entrou no put pelo menos");
-		obj = service.atualizarEscolhaPreco(obj);
-		System.out.println("entrou no put");
-	 return ResponseEntity.ok().body(obj);
-	}
+	/*
+	 * @PutMapping(value = "/tipo-de-preco") public ResponseEntity<Usuario>
+	 * atualizarEscolhaPreco (@RequestBody Usuario obj){ obj =
+	 * service.atualizarEscolhaPreco(obj); return ResponseEntity.ok().body(obj); }
+	 */
 	
 
 }

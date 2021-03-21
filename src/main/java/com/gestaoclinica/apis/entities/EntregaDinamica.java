@@ -18,14 +18,13 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table (name = "TB_ENTREGA_DINAMICA")
 public class EntregaDinamica implements Serializable{
 	private static long serialVersionUID = 1L;
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 	private Long id;
 	@NotNull
-	private Long cnpjUsuario;
+	private Long cnpjTransportadora;
 	private Long cpfMotorista;
 	@NotNull
 	private String statusEntrega;
@@ -70,12 +69,12 @@ public class EntregaDinamica implements Serializable{
 		this.id = id;
 	}
 
-	public Long getCnpjUsuario() {
-		return cnpjUsuario;
+	public Long getCnpjTransportadora() {
+		return cnpjTransportadora;
 	}
 
-	public void setCnpjUsuario(Long cnpjUsuario) {
-		this.cnpjUsuario = cnpjUsuario;
+	public void setCnpjTransportadora(Long cnpjTransportadora) {
+		this.cnpjTransportadora = cnpjTransportadora;
 	}
 
 	public Long getCpfMotorista() {

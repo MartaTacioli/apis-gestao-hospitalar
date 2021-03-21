@@ -1,49 +1,45 @@
 package com.gestaoclinica.apis.entities;
 
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name = "TB_INVENTARIO", uniqueConstraints = @UniqueConstraint(columnNames = { "inventario" }))
-public class Inventario implements Serializable {
+@Table(name = "TB_EQUIPAMENTO", uniqueConstraints = @UniqueConstraint(columnNames = { "equipamento" }))
+public class Equipamento implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@NotEmpty
-	private String inventario;
+	private String equipamento;
 
-	@ManyToOne
-	@JoinColumn(name = "modelo_id")
-	private Modelo modelo;
+	@OneToMany (mappedBy = "equipamento")
+	@JsonIgnore
+	private List<Modelo> modelo = new ArrayList<>();
 	
-	@OneToOne
-	@NotNull
-	private Fornecedor fornecedor;
 	
-	@NotEmpty
-	private String descricao;
-	
-	@NotNull
-	private String dataCadastramento = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(new Date());
+	public Equipamento() {
 
-	
-	public Inventario() {
+	}
 
+
+	public Equipamento(@NotEmpty String equipamento, List<Modelo> modelo) {
+		this.equipamento = equipamento;
+		this.modelo = modelo;
 	}
 
 
@@ -57,54 +53,25 @@ public class Inventario implements Serializable {
 	}
 
 
-	public String getInventario() {
-		return inventario;
+	public String getEquipamento() {
+		return equipamento;
 	}
 
 
-	public void setInventario(String inventario) {
-		this.inventario = inventario;
+	public void setEquipamento(String equipamento) {
+		this.equipamento = equipamento;
 	}
 
 
-	public Modelo getModelo() {
+	public List<Modelo> getModelo() {
 		return modelo;
 	}
 
 
-	public void setModelo(Modelo modelo) {
+	public void setModelo(List<Modelo> modelo) {
 		this.modelo = modelo;
 	}
 
-
-	public Fornecedor getFornecedor() {
-		return fornecedor;
-	}
-
-
-	public void setFornecedor(Fornecedor fornecedor) {
-		this.fornecedor = fornecedor;
-	}
-
-
-	public String getDescricao() {
-		return descricao;
-	}
-
-
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
-
-
-	public String getDataCadastramento() {
-		return dataCadastramento;
-	}
-
-
-	public void setDataCadastramento(String dataCadastramento) {
-		this.dataCadastramento = dataCadastramento;
-	}
 
 
 	

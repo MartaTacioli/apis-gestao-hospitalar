@@ -19,9 +19,9 @@ public interface AprovacaoMotoristaRepository extends JpaRepository<AprovacaoMot
 	AnuncioResumoCard findProjectedById(Long id);
  
 	*/
-	List<AprovacaoMotorista> findAllByCnpjUsuario(Long cnpj);
+	List<AprovacaoMotorista> findAllByCnpjTransportadora(Long cnpj);
 	List<AprovacaoMotorista> findAllByCpfMotorista(Long cpf);
-	AprovacaoMotorista findByCnpjUsuarioAndCpfMotorista(Long cnpj,Long cpf);
+	AprovacaoMotorista findByCnpjTransportadoraAndCpfMotorista(Long cnpj,Long cpf);
 	List<AprovacaoMotorista> findAllByCpfMotoristaAndAprovado(Long cpf, int aprovado);
 
 

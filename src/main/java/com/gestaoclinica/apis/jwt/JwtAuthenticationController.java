@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.gestaoclinica.apis.entities.Usuario;
 import com.gestaoclinica.apis.entities.Login;
-import com.gestaoclinica.apis.service.UsuarioService;
+import com.gestaoclinica.apis.entities.Usuario;
 import com.gestaoclinica.apis.service.LoginService;
+import com.gestaoclinica.apis.service.UsuarioService;
 import com.gestaoclinica.apis.service.exceptions.CorretorNegadoException;
 import com.gestaoclinica.apis.service.exceptions.CorretorPendenteAprovacaoException;
 import com.gestaoclinica.apis.service.exceptions.ErroNaoMapeadoException;
@@ -35,22 +35,22 @@ public class JwtAuthenticationController {
 	@Autowired
 	private UsuarioService corretorService;
 	
-	private Usuario corretorAprovado;
+	private Usuario usuarioAprovado;
 
 	@RequestMapping(value = "/authenticate", method = RequestMethod.POST)
 	public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest) throws Exception {
 		
-		corretorAprovado = new Usuario ();
+		usuarioAprovado = new Usuario ();
 		
-		corretorAprovado = corretorService.findById(authenticationRequest.getCnpj());
+		usuarioAprovado = corretorService.findById(authenticationRequest.getCpf());
 		
-		if (corretorAprovado.getAprovado() == 0) {
+		if (usuarioAprovado.getAprovado() == 0) {
 			throw new CorretorPendenteAprovacaoException("Pendente aprovação.");
-		} else if (corretorAprovado.getAprovado() == 3) {
+		} else if (usuarioAprovado.getAprovado() == 3) {
 			throw new CorretorNegadoException ("Não aprovado.");
 		} 
-		authenticate1(authenticationRequest.getCnpj(), authenticationRequest.getSenha());
-		final Login login = loginService.findByCpf(authenticationRequest.getCnpj());
+		authenticate1(authenticationRequest.getCpf(), authenticationRequest.getSenha());
+		final Login login = loginService.findByCpf(authenticationRequest.getCpf());
 		final String token = jwtTokenUtil.generateToken(login);
 		return ResponseEntity.ok(new JwtResponse(token));
 	}

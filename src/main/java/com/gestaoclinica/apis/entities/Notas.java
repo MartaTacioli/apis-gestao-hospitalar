@@ -9,7 +9,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table (name = "TB_NOTAS")
 public class Notas implements Serializable{
 	private static long serialVersionUID = 1L;
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,7 +22,7 @@ public class Notas implements Serializable{
 	private String qtd_volume_nfe;
 	private String peso_total_nfe;
 	private String volume_nf;
-	private Long cnpj_Usuario;
+	private Long cnpj_transportadora;
 	private String email_cliente;
 	private String uf_cod_cliente;
 	private String nome_cliente;
@@ -41,7 +40,7 @@ public class Notas implements Serializable{
 	
 	
 	public Notas(String pedido, String nota, String serie, String centro, String qtd_volume_nfe, String peso_total_nfe,
-			String volume_nf, Long cnpj_Usuario, String email_cliente, String uf_cod_cliente,
+			String volume_nf, Long cnpj_transportadora, String email_cliente, String uf_cod_cliente,
 			String nome_cliente, String telefone_cliente, String endereco_cliente, String endereco_numero,
 			String endereco_complemento, String cep_cliente, String cidade_cliente, String bairro_cliente,
 			String uf_cliente) {
@@ -53,7 +52,7 @@ public class Notas implements Serializable{
 		this.qtd_volume_nfe = qtd_volume_nfe;
 		this.peso_total_nfe = peso_total_nfe;
 		this.volume_nf = volume_nf;
-		this.cnpj_Usuario = cnpj_Usuario;
+		this.cnpj_transportadora = cnpj_transportadora;
 		this.email_cliente = email_cliente;
 		this.uf_cod_cliente = uf_cod_cliente;
 		this.nome_cliente = nome_cliente;
@@ -104,11 +103,11 @@ public class Notas implements Serializable{
 	public void setVolume_nf(String volume_nf) {
 		this.volume_nf = volume_nf;
 	}
-	public Long getCnpj_Usuario() {
-		return cnpj_Usuario;
+	public Long getCnpj_transportadora() {
+		return cnpj_transportadora;
 	}
-	public void setCnpj_Usuario(Long cnpj_Usuario) {
-		this.cnpj_Usuario = cnpj_Usuario;
+	public void setCnpj_transportadora(Long cnpj_transportadora) {
+		this.cnpj_transportadora = cnpj_transportadora;
 	}
 	public String getEmail_cliente() {
 		return email_cliente;

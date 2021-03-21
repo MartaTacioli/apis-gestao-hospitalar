@@ -25,7 +25,7 @@ public class Modelo implements Serializable{
 
 	@ManyToOne
 	@JoinColumn(name = "equipamento_id")
-	private Equipamento inventario;
+	private Equipamento equipamento;
 	
 	
 	public Modelo() {
@@ -55,11 +55,11 @@ public class Modelo implements Serializable{
 	}
 
 	public Equipamento getEquipamento() {
-		return inventario;
+		return equipamento;
 	}
 
-	public void setEquipamento(Equipamento inventario) {
-		this.inventario = inventario;
+	public void setEquipamento(Equipamento equipamento) {
+		this.equipamento = equipamento;
 	}
 
 

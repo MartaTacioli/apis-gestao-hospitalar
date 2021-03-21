@@ -78,21 +78,21 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers(HttpMethod.GET).permitAll()
 				.antMatchers(HttpMethod.PUT).permitAll()
 				.antMatchers(HttpMethod.DELETE).permitAll().and()
-				/*.antMatchers(HttpMethod.POST, "/motorista","/Usuario","/authenticate","/Usuario/filter/regiao").permitAll()
+				/*.antMatchers(HttpMethod.POST, "/motorista","/transportadora","/authenticate","/transportadora/filter/regiao").permitAll()
 				.antMatchers(HttpMethod.POST, "/tipo-veiculo","/regiao","/taxa-valor-km","/taxa-peso-escala","/taxa-peso-escala/deletar","/taxa-cep-escala","/taxa-cep-escala/deletar","/regiao/deletar","/tipo-veiculo/deletar").hasAnyAuthority("ROLE_ADMIN","ROLE_USER")
-				.antMatchers(HttpMethod.GET, "/tipo-veiculo","/regiao","/taxa-valor-km","/taxa-peso-escala","/taxa-peso-escala/deletar","/taxa-cep-escala","/taxa-cep-escala/deletar","/regiao/deletar","/tipo-veiculo/deletar","/Usuario/*","/motorista/Usuario/*").hasAnyAuthority("ROLE_ADMIN","ROLE_USER")
-				.antMatchers(HttpMethod.GET, "/Usuario/pendentes").hasAuthority("ROLE_ADMIN")
+				.antMatchers(HttpMethod.GET, "/tipo-veiculo","/regiao","/taxa-valor-km","/taxa-peso-escala","/taxa-peso-escala/deletar","/taxa-cep-escala","/taxa-cep-escala/deletar","/regiao/deletar","/tipo-veiculo/deletar","/transportadora/*","/motorista/transportadora/*").hasAnyAuthority("ROLE_ADMIN","ROLE_USER")
+				.antMatchers(HttpMethod.GET, "/transportadora/pendentes").hasAuthority("ROLE_ADMIN")
 				.antMatchers(HttpMethod.GET,  "/tipo-veiculo","/regiao/zona/*","/regiao/estados/*","/regiao").permitAll()
 			
-				.antMatchers(HttpMethod.PUT, "/Usuario/pendentes/aprovar").hasAuthority("ROLE_ADMIN")
-				.antMatchers(HttpMethod.PUT, "/Usuario/tipo-de-preco","/motorista/atualizar").hasAuthority("ROLE_USER").and()
+				.antMatchers(HttpMethod.PUT, "/transportadora/pendentes/aprovar").hasAuthority("ROLE_ADMIN")
+				.antMatchers(HttpMethod.PUT, "/transportadora/tipo-de-preco","/motorista/atualizar").hasAuthority("ROLE_USER").and()
 
 				
 				.antMatchers(HttpMethod.POST, "/authenticate","/corretores", "/anuncios/filtrar", "/diretorios").permitAll()
 				.antMatchers(HttpMethod.GET, "/anuncios", "/diretorios").permitAll()
 				.antMatchers(HttpMethod.POST,"/proprietarios", "/anuncios", "/localizacao").authenticated()
 				.antMatchers(HttpMethod.POST, "/*").hasAuthority("ROLE_ADMIN").and()
-				.antMatchers(HttpMethod.POST, "/motorista", "/Usuario").permitAll()*/
+				.antMatchers(HttpMethod.POST, "/motorista", "/transportadora").permitAll()*/
 				
 // make sure we use stateless session; session won't be used to
 // store user's state.

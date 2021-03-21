@@ -28,16 +28,16 @@ public class AprovacaoMotoristaService {
 
 	}
 	
-	public List<AprovacaoMotorista> findAllByCnpjUsuario(Long cnpj){
-		return repository.findAllByCnpjUsuario(cnpj);
+	public List<AprovacaoMotorista> findAllByCnpjTransportadora(Long cnpj){
+		return repository.findAllByCnpjTransportadora(cnpj);
 
 	}
 	public List<AprovacaoMotorista> findAllByCpfMotorista(Long cpf){
 		return repository.findAllByCpfMotorista(cpf);
 
 	}
-	public AprovacaoMotorista findByCnpjUsuarioAndCpfMotorista(Long cnpj,Long cpf){
-		return repository.findByCnpjUsuarioAndCpfMotorista(cnpj,cpf);
+	public AprovacaoMotorista findByCnpjTransportadoraAndCpfMotorista(Long cnpj,Long cpf){
+		return repository.findByCnpjTransportadoraAndCpfMotorista(cnpj,cpf);
 
 	}
 	public List<AprovacaoMotorista> findAllByCpfMotoristaAndAprovado(Long cpf, int aprovado){

@@ -13,7 +13,6 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table (name = "TB_CEP_ESCALA")
 public class TaxaCepEscala implements Serializable {
 	private static final long serialVersionUID = 1L;
 

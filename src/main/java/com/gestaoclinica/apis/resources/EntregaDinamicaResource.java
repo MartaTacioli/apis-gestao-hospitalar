@@ -26,8 +26,8 @@ public class EntregaDinamicaResource {
 	
 
 	@GetMapping(value = "/{cnpj}")
-	public ResponseEntity<List<EntregaDinamica>> findAllByCnpjUsuario(@PathVariable long cnpj){
-		List<EntregaDinamica> obj = service.findAllByCnpjUsuario(cnpj);
+	public ResponseEntity<List<EntregaDinamica>> findAllByCnpjTransportadora(@PathVariable long cnpj){
+		List<EntregaDinamica> obj = service.findAllByCnpjTransportadora(cnpj);
 		
 		return ResponseEntity.ok().body(obj);
 	}

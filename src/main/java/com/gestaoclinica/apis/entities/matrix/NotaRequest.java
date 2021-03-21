@@ -5,7 +5,7 @@ public class NotaRequest {
 	private String nota;
 	private String serie;
 	private String centro;
-	private Long cnpjUsuario;
+	private Long cnpjTransportadora;
 	
 	public NotaRequest() {
 		
@@ -35,12 +35,12 @@ public class NotaRequest {
 		this.centro = centro;
 	}
 
-	public Long getCnpjUsuario() {
-		return cnpjUsuario;
+	public Long getCnpjTransportadora() {
+		return cnpjTransportadora;
 	}
 
-	public void setCnpjUsuario(Long cnpjUsuario) {
-		this.cnpjUsuario = cnpjUsuario;
+	public void setCnpjTransportadora(Long cnpjTransportadora) {
+		this.cnpjTransportadora = cnpjTransportadora;
 	}
 	
 	

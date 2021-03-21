@@ -10,7 +10,6 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table (name = "TB_PESO_ESCALA")
 public class TaxaPesoEscala implements Serializable {
 	private static final long serialVersionUID = 1L;
 

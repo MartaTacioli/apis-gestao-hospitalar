@@ -128,7 +128,7 @@ public class ResourceExceptionHandler {
 	
 	@ExceptionHandler(CorretorNegadoException.class)
 	public ResponseEntity<StandardError> CorretorNegadoException(CorretorNegadoException e, HttpServletRequest request){
-		String error = "Seu pedido de cadastro de Usuario foi negado. Entre em contato com a administra��o!";
+		String error = "Seu pedido de cadastro de transportadora foi negado. Entre em contato com a administra��o!";
 		HttpStatus status = HttpStatus.FORBIDDEN;
 		StandardError err = new StandardError (Instant.now(), status.value(), error, e.getMessage());
 		return ResponseEntity.status(status).body(err);

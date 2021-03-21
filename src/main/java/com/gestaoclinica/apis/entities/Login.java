@@ -32,7 +32,7 @@ public class Login implements Serializable {
 	@JsonIgnore
 	@OneToOne
 	@MapsId
-	private Usuario Usuario;
+	private Usuario usuario;
 	
 	
 
@@ -63,75 +63,63 @@ public class Login implements Serializable {
 	public Login () {
 		
 	}
-	
-	public Login(String senha, int aprovado, Usuario Usuario) {
-		super();
-		this.senha = senha;
-		this.aprovado = aprovado;
-		this.Usuario = Usuario;
-	}
 
-	public String getSenha() {
-		return senha;
-	}
 
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
 
-	public Usuario getUsuario() {
-		return Usuario;
-	}
-
-	public void setUsuario(Usuario Usuario) {
-		this.Usuario = Usuario;
-	}
 
 	public Long getId() {
 		return Id;
 	}
 
+
+
+
 	public void setId(Long id) {
 		Id = id;
 	}
-	
+
+
+
+
+	public String getSenha() {
+		return senha;
+	}
+
+
+
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
+
+
+
 	public int getAprovado() {
 		return aprovado;
 	}
+
+
+
 
 	public void setAprovado(int aprovado) {
 		this.aprovado = aprovado;
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((Id == null) ? 0 : Id.hashCode());
-		result = prime * result + ((senha == null) ? 0 : senha.hashCode());
-		return result;
+
+
+
+	public Usuario getUsuario() {
+		return usuario;
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Login other = (Login) obj;
-		if (Id == null) {
-			if (other.Id != null)
-				return false;
-		} else if (!Id.equals(other.Id))
-			return false;
-		if (senha == null) {
-			if (other.senha != null)
-				return false;
-		} else if (!senha.equals(other.senha))
-			return false;
-		return true;
+
+
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
+	
+
 
 }

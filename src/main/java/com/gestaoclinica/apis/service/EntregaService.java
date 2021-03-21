@@ -98,10 +98,10 @@ public class EntregaService {
 
 		if (nota.getExist() == "true") {
 
-			if (nota.getData().getCnpj_Usuario().toString()
-					.compareTo(objConsulta.getCnpjUsuario().toString()) != 0) {
+			if (nota.getData().getCnpj_transportadora().toString()
+					.compareTo(objConsulta.getCnpjTransportadora().toString()) != 0) {
 
-				throw new ErroDePermissaoException("Essa nota n�o � da sua Usuario!");
+				throw new ErroDePermissaoException("Essa nota n�o � da sua transportadora!");
 			}
 			return nota;
 		} else {

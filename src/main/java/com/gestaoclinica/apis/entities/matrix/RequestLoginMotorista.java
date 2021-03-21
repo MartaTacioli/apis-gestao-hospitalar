@@ -4,7 +4,7 @@ public class RequestLoginMotorista {
 	
 	private Long cpf_motorista;
 	
-	private String cnpj_Usuario;
+	private String cnpj_transportadora;
 	private String nome;
 	private String email;
 	private String password;
@@ -19,11 +19,11 @@ public class RequestLoginMotorista {
 
 
 
-	public RequestLoginMotorista(Long cpf_motorista, String cnpj_Usuario, String nome, String email,
+	public RequestLoginMotorista(Long cpf_motorista, String cnpj_transportadora, String nome, String email,
 			String password, String placa) {
 		super();
 		this.cpf_motorista = cpf_motorista;
-		this.cnpj_Usuario = cnpj_Usuario;
+		this.cnpj_transportadora = cnpj_transportadora;
 		this.nome = nome;
 		this.email = email;
 		this.password = password;
@@ -62,12 +62,12 @@ public class RequestLoginMotorista {
 
 
 
-	public String getCnpj_Usuario() {
-		return cnpj_Usuario;
+	public String getCnpj_transportadora() {
+		return cnpj_transportadora;
 	}
 
-	public void setCnpj_Usuario(String cnpj_Usuario) {
-		this.cnpj_Usuario = cnpj_Usuario;
+	public void setCnpj_transportadora(String cnpj_transportadora) {
+		this.cnpj_transportadora = cnpj_transportadora;
 	}
 
 	public String getNome() {

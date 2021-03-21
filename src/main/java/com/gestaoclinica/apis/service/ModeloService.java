@@ -39,7 +39,7 @@ public class ModeloService {
 			repository.save(obj);
 		} catch (DataIntegrityViolationException e) {
 			e.printStackTrace();
-			String erro  = "Erro de referência externa. Máquina com id " + obj.getEquipamento().getId() + " não existe na tabela de máquinas.";
+			String erro  = "Erro de referência externa. Equipamento com id " + obj.getEquipamento().getId() + " não existe na tabela de máquinas.";
 			throw new ReferenciaExternaException(erro);
 
 		} catch (ConstraintViolationException e) {
