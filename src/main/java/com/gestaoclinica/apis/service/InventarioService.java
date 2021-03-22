@@ -27,6 +27,11 @@ public class InventarioService {
 		return repository.findAll();
 
 	}
+	
+	public List<Inventario> findAllByUsuario() {
+		return repository.findAll();
+
+	}
 
 	public Inventario insert(Inventario obj) {
 		try {

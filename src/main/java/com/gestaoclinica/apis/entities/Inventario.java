@@ -2,18 +2,23 @@ package com.gestaoclinica.apis.entities;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "TB_INVENTARIO", uniqueConstraints = @UniqueConstraint(columnNames = { "inventario" }))
@@ -59,6 +64,7 @@ public class Inventario implements Serializable {
 	@NotNull
 	private Date dataCadastramento = new Date();
 
+
 	
 	public Inventario() {
 
@@ -68,6 +74,7 @@ public class Inventario implements Serializable {
 	public Long getId() {
 		return id;
 	}
+
 
 
 	public void setId(Long id) {
