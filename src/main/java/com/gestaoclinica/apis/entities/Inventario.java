@@ -2,23 +2,18 @@ package com.gestaoclinica.apis.entities;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "TB_INVENTARIO", uniqueConstraints = @UniqueConstraint(columnNames = { "inventario" }))
@@ -50,20 +45,18 @@ public class Inventario implements Serializable {
 	private String anoAquisicao;
 	private String inicioGarantia;
 	private String expiracaoGarantia;
-	private Double potencia;
-	private Double corrente;
-	private String alimentacaoEletrica;
-	private Double peso;
-	private Double altura;
-	private Double largura;
-	private Double comprimento;
+	private Boolean utilizaGases;
+	private String quaisGases;
+	private Boolean alimentacaoHidraulica;
+	private Boolean utilizaAcessorios;
+	private String quaisAcessorios;
+	private Double alimentacaoEletrica;
 	private String registroAnvisa;
 	private Date anoFabricacao;
 	private Date dataCompra;
 	
 	@NotNull
 	private Date dataCadastramento = new Date();
-
 
 	
 	public Inventario() {
@@ -76,7 +69,6 @@ public class Inventario implements Serializable {
 	}
 
 
-
 	public void setId(Long id) {
 		this.id = id;
 	}
@@ -84,66 +76,6 @@ public class Inventario implements Serializable {
 
 	public String getInventario() {
 		return inventario;
-	}
-	
-	
-	public Double getPotencia() {
-		return potencia;
-	}
-
-
-	public void setPotencia(Double potencia) {
-		this.potencia = potencia;
-	}
-
-
-	public Double getCorrente() {
-		return corrente;
-	}
-
-
-	public void setCorrente(Double corrente) {
-		this.corrente = corrente;
-	}
-
-
-	public Double getPeso() {
-		return peso;
-	}
-
-
-	public void setPeso(Double peso) {
-		this.peso = peso;
-	}
-
-
-	public Double getAltura() {
-		return altura;
-	}
-
-
-	public void setAltura(Double altura) {
-		this.altura = altura;
-	}
-
-
-	public Double getLargura() {
-		return largura;
-	}
-
-
-	public void setLargura(Double largura) {
-		this.largura = largura;
-	}
-
-
-	public Double getComprimento() {
-		return comprimento;
-	}
-
-
-	public void setComprimento(Double comprimento) {
-		this.comprimento = comprimento;
 	}
 
 
@@ -319,6 +251,68 @@ public class Inventario implements Serializable {
 
 	public void setDataCadastramento(Date dataCadastramento) {
 		this.dataCadastramento = dataCadastramento;
+	}
+	
+	
+
+
+	public Boolean getUtilizaGases() {
+		return utilizaGases;
+	}
+
+
+	public void setUtilizaGases(Boolean utilizaGases) {
+		this.utilizaGases = utilizaGases;
+	}
+
+
+	public String getQuaisGases() {
+		return quaisGases;
+	}
+
+
+	public void setQuaisGases(String quaisGases) {
+		this.quaisGases = quaisGases;
+	}
+
+
+	public Boolean getAlimentacaoHidraulica() {
+		return alimentacaoHidraulica;
+	}
+
+
+	public void setAlimentacaoHidraulica(Boolean alimentacaoHidraulica) {
+		this.alimentacaoHidraulica = alimentacaoHidraulica;
+	}
+
+
+	public Boolean getUtilizaAcessorios() {
+		return utilizaAcessorios;
+	}
+
+
+	public void setUtilizaAcessorios(Boolean utilizaAcessorios) {
+		this.utilizaAcessorios = utilizaAcessorios;
+	}
+
+
+	public String getQuaisAcessorios() {
+		return quaisAcessorios;
+	}
+
+
+	public void setQuaisAcessorios(String quaisAcessorios) {
+		this.quaisAcessorios = quaisAcessorios;
+	}
+
+
+	public Double getAlimentacaoEletrica() {
+		return alimentacaoEletrica;
+	}
+
+
+	public void setAlimentacaoEletrica(Double alimentacaoEletrica) {
+		this.alimentacaoEletrica = alimentacaoEletrica;
 	}
 
 
