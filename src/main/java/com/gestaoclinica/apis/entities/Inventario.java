@@ -23,8 +23,7 @@ public class Inventario implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@NotEmpty
-	private String inventario;
+
 
 	@ManyToOne
 	@JoinColumn(name = "modelo_id")
@@ -75,14 +74,7 @@ public class Inventario implements Serializable {
 	}
 
 
-	public String getInventario() {
-		return inventario;
-	}
 
-
-	public void setInventario(String inventario) {
-		this.inventario = inventario;
-	}
 
 
 	public Modelo getModelo() {
