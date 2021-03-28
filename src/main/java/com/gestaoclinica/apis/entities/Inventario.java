@@ -16,7 +16,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "TB_INVENTARIO", uniqueConstraints = @UniqueConstraint(columnNames = { "inventario" }))
+@Table(name = "TB_INVENTARIO")
 public class Inventario implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -34,6 +34,7 @@ public class Inventario implements Serializable {
 	@NotNull
 	private Fornecedor fornecedor;
 	
+	private Usuario usuario;
 	private String descricao;
 	private String fabricante;
 	private String centroCusto;
@@ -318,6 +319,16 @@ public class Inventario implements Serializable {
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 
