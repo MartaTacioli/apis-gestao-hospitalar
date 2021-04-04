@@ -11,8 +11,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -53,6 +51,12 @@ public class Inventario implements Serializable {
 	private Double alimentacaoEletrica;
 	private String registroAnvisa;
 	private Date anoFabricacao;
+	private Double peso;
+	private Double comprimento;
+	private Double altura;
+	private Double corrente;
+	private Double potencia;
+	private Double largura;
 	private Date dataCompra;
 	
 	@NotNull
@@ -321,6 +325,66 @@ public class Inventario implements Serializable {
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
+	}
+
+
+	public Double getPeso() {
+		return peso;
+	}
+
+
+	public void setPeso(Double peso) {
+		this.peso = peso;
+	}
+
+
+	public Double getComprimento() {
+		return comprimento;
+	}
+
+
+	public void setComprimento(Double comprimento) {
+		this.comprimento = comprimento;
+	}
+
+
+	public Double getAltura() {
+		return altura;
+	}
+
+
+	public void setAltura(Double altura) {
+		this.altura = altura;
+	}
+
+
+	public Double getCorrente() {
+		return corrente;
+	}
+
+
+	public void setCorrente(Double corrente) {
+		this.corrente = corrente;
+	}
+
+
+	public Double getPotencia() {
+		return potencia;
+	}
+
+
+	public void setPotencia(Double potencia) {
+		this.potencia = potencia;
+	}
+
+
+	public Double getLargura() {
+		return largura;
+	}
+
+
+	public void setLargura(Double largura) {
+		this.largura = largura;
 	}
 
 

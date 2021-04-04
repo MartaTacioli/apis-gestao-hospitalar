@@ -13,44 +13,40 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.gestaoclinica.apis.entities.Inventario;
-import com.gestaoclinica.apis.service.InventarioService;
+import com.gestaoclinica.apis.entities.CentroDeCusto;
+import com.gestaoclinica.apis.service.CentroDeCustoService;
 
 @RestController
-@RequestMapping (value = "/inventario")
-public class InventarioResource {
-	
-	@Autowired
-	private InventarioService service;
-	
-	@GetMapping
-	public ResponseEntity<List<Inventario>> findAll(){
-		List<Inventario> obj = service.findAll();
-		return ResponseEntity.ok().body(obj);
-	}
+@RequestMapping (value = "/centro-de-custo")
+public class CentroDeCustoResource {
 
-	@GetMapping(value = "/usuario/{cpf}")
-	public ResponseEntity<List<Inventario>> findAllByUsuario(@PathVariable Long cpf){
-		List<Inventario> obj = service.findAllByUsuario(cpf);
+	@Autowired
+	private CentroDeCustoService service;
+
+	@GetMapping(value = "/{cnpj}")
+	public ResponseEntity<List<CentroDeCusto>> findAllByCnpj(@PathVariable Long cnpj){
+		List<CentroDeCusto> obj = service.findAllByCnpj(cnpj);
 		return ResponseEntity.ok().body(obj);
 	}
+	
+
+
 
 	@PostMapping
-	public ResponseEntity<Inventario> insert (@RequestBody Inventario obj){
+	public ResponseEntity<CentroDeCusto> insert (@RequestBody CentroDeCusto obj){
 		obj = service.insert(obj);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-				  .buildAndExpand(obj).toUri();
+				  .buildAndExpand(obj.getId()).toUri();
 		return ResponseEntity.created(uri).body(obj);
 	}
-
+	
 	@PostMapping(value = "/deletar")
-	public ResponseEntity<Inventario> delete (@RequestBody Inventario obj){
+	public ResponseEntity<CentroDeCusto> delete (@RequestBody CentroDeCusto obj){
 		obj = service.delete(obj);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
 				  .buildAndExpand(obj).toUri();
 		return ResponseEntity.created(uri).body(obj);
 	}
-	
 	
 
 }

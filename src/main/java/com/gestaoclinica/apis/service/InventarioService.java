@@ -11,6 +11,7 @@ import org.springframework.dao.InvalidDataAccessApiUsageException;
 import org.springframework.stereotype.Service;
 
 import com.gestaoclinica.apis.entities.Inventario;
+import com.gestaoclinica.apis.entities.Usuario;
 import com.gestaoclinica.apis.repositories.InventarioRepository;
 import com.gestaoclinica.apis.service.exceptions.CamposObrigatoriosException;
 import com.gestaoclinica.apis.service.exceptions.ErroNaoMapeadoException;
@@ -28,8 +29,11 @@ public class InventarioService {
 
 	}
 	
-	public List<Inventario> findAllByUsuario() {
-		return repository.findAll();
+	public List<Inventario> findAllByUsuario(Long cpf) {
+		Usuario usuario = new Usuario();
+		usuario.setCpf(cpf);
+		
+		return repository.findAllByUsuario(usuario);
 
 	}
 
