@@ -28,6 +28,11 @@ public class InventarioResource {
 		List<Inventario> obj = service.findAll();
 		return ResponseEntity.ok().body(obj);
 	}
+	@GetMapping(value = "/{id}")
+	public ResponseEntity<Inventario> findById(@PathVariable Long id){
+		Inventario obj = service.findById(id);
+		return ResponseEntity.ok().body(obj);
+	}
 
 	@GetMapping(value = "/usuario/{cpf}")
 	public ResponseEntity<List<Inventario>> findAllByUsuario(@PathVariable Long cpf){

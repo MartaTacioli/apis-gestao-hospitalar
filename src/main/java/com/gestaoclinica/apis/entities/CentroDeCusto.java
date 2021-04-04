@@ -7,14 +7,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 
 @Entity
-@Table (name = "TB_CENTRO_CUSTO",uniqueConstraints=
-@UniqueConstraint(columnNames={"cnpj"})
-)
+@Table (name = "TB_CENTRO_CUSTO")
 public class CentroDeCusto implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
@@ -25,7 +21,7 @@ public class CentroDeCusto implements Serializable{
 	private String centroCusto;
 	@NotEmpty
 	private String cnpj;
-	
+	@NotEmpty
 	private Usuario usuario;
 	
 	

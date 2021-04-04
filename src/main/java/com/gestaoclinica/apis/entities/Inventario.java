@@ -58,7 +58,28 @@ public class Inventario implements Serializable {
 	private Double potencia;
 	private Double largura;
 	private Date dataCompra;
-	
+	private String observacao;
+	private String qrCode;
+	public String getObservacao() {
+		return observacao;
+	}
+
+
+	public void setObservacao(String observacao) {
+		this.observacao = observacao;
+	}
+
+
+	public String getQrCode() {
+		return qrCode;
+	}
+
+
+	public void setQrCode(String qrCode) {
+		this.qrCode = qrCode;
+	}
+
+
 	@NotNull
 	private Date dataCadastramento = new Date();
 

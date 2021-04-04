@@ -1,6 +1,7 @@
 package com.gestaoclinica.apis.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.ConstraintViolationException;
 
@@ -27,6 +28,10 @@ public class InventarioService {
 	public List<Inventario> findAll() {
 		return repository.findAll();
 
+	}
+	public Inventario findById(Long id) {
+		Optional<Inventario> obj = repository.findById(id);
+		return obj.orElseThrow(() -> new RecursoNaoEncontradoException(id,1));
 	}
 	
 	public List<Inventario> findAllByUsuario(Long cpf) {
