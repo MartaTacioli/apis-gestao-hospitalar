@@ -17,9 +17,6 @@ import com.gestaoclinica.apis.entities.Usuario;
 import com.gestaoclinica.apis.entities.matrix.Nota;
 import com.gestaoclinica.apis.entities.matrix.NotaRequest;
 import com.gestaoclinica.apis.repositories.LoginRepository;
-import com.gestaoclinica.apis.repositories.TaxaCepEscalaRepository;
-import com.gestaoclinica.apis.repositories.TaxaPesoEscalaRepository;
-import com.gestaoclinica.apis.repositories.TaxaValorKmRepository;
 import com.gestaoclinica.apis.repositories.UsuarioRepository;
 import com.gestaoclinica.apis.service.exceptions.CamposObrigatoriosException;
 import com.gestaoclinica.apis.service.exceptions.ErroNaoMapeadoException;
@@ -37,15 +34,8 @@ public class UsuarioService {
 	@Autowired
 	private LoginRepository loginRepository;
 	
-	@Autowired
-	private TaxaValorKmRepository taxaValorKmRepository;
 	
-	@Autowired
-	private TaxaCepEscalaRepository taxaCepEscalaRepository;
-	
-	@Autowired
-	private TaxaPesoEscalaRepository taxaPesoEscalaRepository;
-	
+
 	@Autowired
 	private LoginService loginService;
 	

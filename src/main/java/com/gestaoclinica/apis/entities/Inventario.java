@@ -31,10 +31,13 @@ public class Inventario implements Serializable {
 	@NotNull
 	private Fornecedor fornecedor;
 	
+	@OneToOne
+	@NotNull
+	private CentroDeCusto centroDeCusto;
+	
 	private Usuario usuario;
 	private String descricao;
 	private String fabricante;
-	private String centroCusto;
 	private Double valorCompra;
 	private Double taxaDepreciacao;
 	private String notaFiscal;
@@ -59,7 +62,7 @@ public class Inventario implements Serializable {
 	private Double largura;
 	private Date dataCompra;
 	private String observacao;
-	private String qrCode;
+
 	public String getObservacao() {
 		return observacao;
 	}
@@ -70,13 +73,13 @@ public class Inventario implements Serializable {
 	}
 
 
-	public String getQrCode() {
-		return qrCode;
+	public CentroDeCusto getCentroDeCusto() {
+		return centroDeCusto;
 	}
 
 
-	public void setQrCode(String qrCode) {
-		this.qrCode = qrCode;
+	public void setCentroDeCusto(CentroDeCusto centroDeCusto) {
+		this.centroDeCusto = centroDeCusto;
 	}
 
 
@@ -142,14 +145,6 @@ public class Inventario implements Serializable {
 	}
 
 
-	public String getCentroCusto() {
-		return centroCusto;
-	}
-
-
-	public void setCentroCusto(String centroCusto) {
-		this.centroCusto = centroCusto;
-	}
 
 
 	public Double getValorCompra() {

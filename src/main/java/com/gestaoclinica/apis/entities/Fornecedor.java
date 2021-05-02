@@ -24,29 +24,39 @@ public class Fornecedor implements Serializable{
 	@NotEmpty
 	private String fornecedor;
 	
-	@NotEmpty
+	
 	private String endereco;
 	
-	@NotEmpty
 	private String email;
 	
+	private String telefone;
+	
+
+	private String whatsApp;
+	
+	@NotEmpty
+	private String pessoaContato;
 	
 	public Fornecedor() {
 		
 	}
-	
-	public Fornecedor(Long id, @NotEmpty String fornecedor) {
-		super();
-		this.id = id;
-		this.fornecedor = fornecedor;
-	}
-	
+
 	public Long getId() {
 		return id;
 	}
-	
-	
-	
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getFornecedor() {
+		return fornecedor;
+	}
+
+	public void setFornecedor(String fornecedor) {
+		this.fornecedor = fornecedor;
+	}
+
 	public String getEndereco() {
 		return endereco;
 	}
@@ -63,16 +73,44 @@ public class Fornecedor implements Serializable{
 		this.email = email;
 	}
 
-	public void setId(Long id) {
+	public String getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+
+	public String getWhatsApp() {
+		return whatsApp;
+	}
+
+	public void setWhatsApp(String whatsApp) {
+		this.whatsApp = whatsApp;
+	}
+
+	public String getPessoaContato() {
+		return pessoaContato;
+	}
+
+	public void setPessoaContato(String pessoaContato) {
+		this.pessoaContato = pessoaContato;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	public Fornecedor(Long id, @NotEmpty String fornecedor, String endereco, String email, String telefone,
+			String whatsApp, @NotEmpty String pessoaContato) {
+		super();
 		this.id = id;
-	}
-	
-	public String getFornecedor() {
-		return fornecedor;
-	}
-	
-	public void setFornecedor(String fornecedor) {
 		this.fornecedor = fornecedor;
+		this.endereco = endereco;
+		this.email = email;
+		this.telefone = telefone;
+		this.whatsApp = whatsApp;
+		this.pessoaContato = pessoaContato;
 	}
 	
 	

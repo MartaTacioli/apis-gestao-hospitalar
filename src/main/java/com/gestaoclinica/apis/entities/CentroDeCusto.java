@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table (name = "TB_CENTRO_CUSTO")
@@ -18,16 +19,43 @@ public class CentroDeCusto implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@NotEmpty
-	private String centroCusto;
-	@NotEmpty
-	private String cnpj;
-	@NotEmpty
-	private Usuario usuario;
+	private String bloco;
+	private String detalhes;
+	@NotNull
+	private Sala sala;
+	@NotNull
+	private Long cnpj;
 	
 	
 	public CentroDeCusto() {
 		
 	}
+
+
+
+
+
+
+
+
+	public Long getCnpj() {
+		return cnpj;
+	}
+
+
+
+
+
+
+
+
+	public void setCnpj(Long cnpj) {
+		this.cnpj = cnpj;
+	}
+
+
+
+
 
 
 
@@ -46,44 +74,47 @@ public class CentroDeCusto implements Serializable{
 
 
 
-	public String getCentroCusto() {
-		return centroCusto;
+	public String getBloco() {
+		return bloco;
 	}
 
 
 
 
-	public void setCentroCusto(String centroCusto) {
-		this.centroCusto = centroCusto;
+	public void setBloco(String bloco) {
+		this.bloco = bloco;
 	}
 
 
 
 
-	public String getCnpj() {
-		return cnpj;
+	public String getDetalhes() {
+		return detalhes;
 	}
 
 
 
 
-	public void setCnpj(String cnpj) {
-		this.cnpj = cnpj;
+	public void setDetalhes(String detalhes) {
+		this.detalhes = detalhes;
 	}
 
 
 
 
-	public Usuario getUsuario() {
-		return usuario;
+	public Sala getSala() {
+		return sala;
 	}
 
 
 
 
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
+	public void setSala(Sala sala) {
+		this.sala = sala;
 	}
+
+
+
 	
 	
 

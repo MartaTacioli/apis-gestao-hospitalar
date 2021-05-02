@@ -13,52 +13,40 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.gestaoclinica.apis.entities.TaxaPesoEscala;
-import com.gestaoclinica.apis.service.TaxaPesoEscalaService;
+import com.gestaoclinica.apis.entities.Sala;
+import com.gestaoclinica.apis.service.SalaService;
 
 @RestController
-@RequestMapping (value = "/taxa-peso-escala")
-public class TaxaPesoEscalaResource {
-	
+@RequestMapping (value = "/sala")
+public class SalaResource {
+
 	@Autowired
-	private TaxaPesoEscalaService service;
-	/*
-	@GetMapping
-	public ResponseEntity<List<TaxaPesoEscala>> findAll(){
-		List<TaxaPesoEscala> list = service.findAll();
-		return ResponseEntity.ok().body(list);
-	}
-	*/
+	private SalaService service;
+
 	@GetMapping(value = "/{cnpj}")
-	public ResponseEntity<List<TaxaPesoEscala>> findAllByCnpj(@PathVariable Long cnpj){
-		List<TaxaPesoEscala> obj = service.findAllByCnpj(cnpj);
+	public ResponseEntity<List<Sala>> findAllByCnpj(@PathVariable Long cnpj){
+		List<Sala> obj = service.findAllByCnpj(cnpj);
 		return ResponseEntity.ok().body(obj);
 	}
 	
-	@GetMapping(value = "/escalas/{cnpj}")
-	public ResponseEntity<List<Integer>> findAllEscalas(@PathVariable Long cnpj){
-		System.out.println("TAXA PESO ESCALAS");
-		List<Integer> obj = service.findAllEscalas(cnpj);
-		return ResponseEntity.ok().body(obj);
-	}
-	
-	
+
+
 	@PostMapping
-	public ResponseEntity<TaxaPesoEscala> insert (@RequestBody TaxaPesoEscala obj){
+	public ResponseEntity<Sala> insert (@RequestBody Sala obj){
+		System.out.println("entrou 0");
 		obj = service.insert(obj);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-				  .buildAndExpand(obj).toUri();
+				  .buildAndExpand(obj.getId()).toUri();
 		return ResponseEntity.created(uri).body(obj);
 	}
 	
 	@PostMapping(value = "/deletar")
-	public ResponseEntity<TaxaPesoEscala> delete (@RequestBody TaxaPesoEscala obj){
+	public ResponseEntity<Sala> delete (@RequestBody Sala obj){
 		obj = service.delete(obj);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
 				  .buildAndExpand(obj).toUri();
 		return ResponseEntity.created(uri).body(obj);
 	}
-	
 	
 
 }
