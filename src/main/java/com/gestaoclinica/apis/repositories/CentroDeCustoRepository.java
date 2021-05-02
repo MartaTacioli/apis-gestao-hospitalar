@@ -8,5 +8,5 @@ import com.gestaoclinica.apis.entities.CentroDeCusto;
 
 public interface CentroDeCustoRepository extends JpaRepository<CentroDeCusto, Long> {
 	void deleteById(Long id);
-	List<CentroDeCusto> findAllByCnpj(Long cnpj);
+	List<CentroDeCusto> findAllByCnpj(String cnpj);
 }

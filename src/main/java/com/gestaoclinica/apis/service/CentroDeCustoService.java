@@ -24,7 +24,8 @@ public class CentroDeCustoService {
 	@Autowired
 	private CentroDeCustoRepository repository;
 	
-	public List<CentroDeCusto> findAllByCnpj(Long cnpj){
+	public List<CentroDeCusto> findAllByCnpj(String cnpj){
+		System.out.println("findAllByCnpj entrou aqui doidção" + cnpj);
 		return repository.findAllByCnpj(cnpj);
 	}
 	

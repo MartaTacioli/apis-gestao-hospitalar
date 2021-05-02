@@ -24,7 +24,8 @@ public class CentroDeCustoResource {
 	private CentroDeCustoService service;
 
 	@GetMapping(value = "/{cnpj}")
-	public ResponseEntity<List<CentroDeCusto>> findAllByCnpj(@PathVariable Long cnpj){
+	public ResponseEntity<List<CentroDeCusto>> findAllByCnpj(@PathVariable String cnpj){
+		System.out.println("Entrou aqui doidão" + cnpj);
 		List<CentroDeCusto> obj = service.findAllByCnpj(cnpj);
 		return ResponseEntity.ok().body(obj);
 	}

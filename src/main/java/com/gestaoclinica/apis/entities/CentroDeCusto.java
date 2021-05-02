@@ -24,7 +24,7 @@ public class CentroDeCusto implements Serializable{
 	@NotNull
 	private Sala sala;
 	@NotNull
-	private Long cnpj;
+	private String cnpj;
 	
 	
 	public CentroDeCusto() {
@@ -38,7 +38,8 @@ public class CentroDeCusto implements Serializable{
 
 
 
-	public Long getCnpj() {
+
+	public String getCnpj() {
 		return cnpj;
 	}
 
@@ -49,9 +50,11 @@ public class CentroDeCusto implements Serializable{
 
 
 
-	public void setCnpj(Long cnpj) {
+
+	public void setCnpj(String cnpj) {
 		this.cnpj = cnpj;
 	}
+
 
 
 
