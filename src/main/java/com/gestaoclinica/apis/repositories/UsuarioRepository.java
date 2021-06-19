@@ -8,7 +8,10 @@ import com.gestaoclinica.apis.entities.Usuario;
 
 public interface UsuarioRepository extends JpaRepository<Usuario,Long>{
 	
+
 	List<Usuario> findAllByAprovado(Integer aprovado);
 	Usuario findByCpf(Long cpf);
+
+	List<Usuario> findAllByHierarquia(Long hierarquia);
 
 }

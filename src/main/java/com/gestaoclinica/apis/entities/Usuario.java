@@ -1,16 +1,11 @@
 package com.gestaoclinica.apis.entities;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotEmpty;
@@ -40,6 +35,8 @@ public class Usuario implements Serializable{
 	private String senhaConfirm;
 	@NotEmpty
 	private String email;
+	@NotNull
+	private Long hierarquia;
 
 	@NotNull
 	private Integer aprovado;
@@ -61,9 +58,15 @@ public class Usuario implements Serializable{
 	public String getNomeCompleto() {
 		return nomeCompleto;
 	}
-
 	
 
+	public Long getHierarquia() {
+		return hierarquia;
+	}
+
+	public void setHierarquia(Long hierarquia) {
+		this.hierarquia = hierarquia;
+	}
 
 	public void setNomeCompleto(String nomeCompleto) {
 		this.nomeCompleto = nomeCompleto;

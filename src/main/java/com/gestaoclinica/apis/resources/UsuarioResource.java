@@ -32,7 +32,13 @@ public class UsuarioResource {
 		return ResponseEntity.ok().body(list);
 	}
 	
-	
+
+	@GetMapping(value = "/servico/{cpf}")
+	public ResponseEntity<List<Usuario>> findAllByHierarquia(@Valid @PathVariable Long cpf){
+		List<Usuario> list = service.findAllByHierarquia(cpf);
+		return ResponseEntity.ok().body(list);
+	}
+
 	
 
 	
@@ -67,7 +73,14 @@ public class UsuarioResource {
 		return ResponseEntity.created(uri).body(obj);
 	}
 	
-
+	@PostMapping(value = "/atualizar")
+	public ResponseEntity<Usuario> atualizarUsuario (@RequestBody Usuario obj){
+		
+		obj = service.atualizarUsuario(obj);
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
+				  .buildAndExpand(obj.getCpf()).toUri();
+		return ResponseEntity.created(uri).body(obj);
+	}
 	
 	@PutMapping(value = "/pendentes/aprovar")
 	public ResponseEntity<List<Usuario>> aprovarUsuarios (@RequestBody List<Usuario> obj){

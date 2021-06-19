@@ -24,6 +24,7 @@ import com.gestaoclinica.apis.service.exceptions.RecursoJaCadastradoException;
 import com.gestaoclinica.apis.service.exceptions.RecursoNaoEncontradoException;
 import com.gestaoclinica.apis.service.exceptions.SenhasDiferentesException;
 import com.gestaoclinica.apis.service.exceptions.ValidacaoTamanhoSenhaException;
+import com.gestaoclinica.apis.service.exceptions.ViolacaoDeChaveException;
 
 @Service
 public class UsuarioService {
@@ -42,7 +43,33 @@ public class UsuarioService {
 	public List<Usuario> findAll(){
 		return repository.findAll();
 	}
+	
+	public List<Usuario> findAllByHierarquia(Long cpf){
+		return repository.findAllByHierarquia(cpf);
+	}
 
+	public Usuario atualizarUsuario(Usuario obj) {
+		try {
+
+			Usuario entity = repository.findByCpf(obj.getCpf());
+			entity.setCelular(obj.getCelular());
+			entity.setEmail(obj.getEmail());
+			entity.setNomeCompleto(obj.getNomeCompleto());
+
+
+			return repository.save(entity);
+
+		} catch (TransactionSystemException e) {
+
+			throw new ViolacaoDeChaveException("Existem campos vazios!");
+
+		} catch (EntityNotFoundException e) {
+			throw new RecursoNaoEncontradoException("O recurso a ser aprovado nao existe na base. Atualize a pagina e tente novamente.", null);
+		} catch (RuntimeException e) {
+			e.printStackTrace();
+			throw new ErroNaoMapeadoException("Erro nao mapeado na aprovacao de funcionarios.");
+		}
+	}
 	
 	public List<Usuario> findPendentes(){
 		try {
