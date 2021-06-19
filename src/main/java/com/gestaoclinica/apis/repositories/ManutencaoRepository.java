@@ -10,7 +10,7 @@ import com.gestaoclinica.apis.entities.Manutencao;
 import com.gestaoclinica.apis.entities.Usuario;
 
 public interface ManutencaoRepository extends JpaRepository<Manutencao, Long> {
-	List<Manutencao> findAllByUsuario (Usuario usuario);
+	List<Manutencao> findAllByUsuarioExecutor (Usuario usuario);
 	List<Manutencao> findAllByInventario (Inventario inventario);
-
+	
 }

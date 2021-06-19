@@ -43,6 +43,14 @@ public class ManutencaoResource {
 		return ResponseEntity.ok().body(obj);
 	}
 
+	@PostMapping(value = "/aprovar")
+	public ResponseEntity<Manutencao> aprovarManutencao (@RequestBody Manutencao obj){
+		obj = service.aprovarManutencao(obj);
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
+				  .buildAndExpand(obj).toUri();
+		return ResponseEntity.created(uri).body(obj);
+	}
+	
 	@PostMapping
 	public ResponseEntity<Manutencao> insert (@RequestBody Manutencao obj){
 		obj = service.insert(obj);

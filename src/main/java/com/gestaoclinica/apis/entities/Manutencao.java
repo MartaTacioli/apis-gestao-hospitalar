@@ -19,32 +19,86 @@ public class Manutencao implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 	private Long id;
-	@NotNull
-	private String tipoManutencao;
-	@NotNull
-	@OneToOne
-	private Usuario usuario;
+
 	@NotNull
 	@OneToOne
 	private Inventario inventario;
 	@NotNull
 	private String data = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(new Date());
-	private String observacoes;
+	private String descricaoDetalhadaServico;
+	private String descricaoDetalhadaAprovador;
+	private String descricaoDetalhadaExecutor;
+	private Boolean falhaEquipamento;
+	private Boolean falhaAcessorio;
+	private Boolean manutencaoPreventiva;
+	private Boolean manutencaoCorretiva;
+	private Boolean calibracao;
+	private Boolean treinamento;
+	private Boolean instalacao;
+	private Long usuarioServico;
+	private Long usuarioAprovador;
+	private Long usuarioExecutor;
+	private int aprovado;
+	private String manutencaoLocalRetiradaExterna;
+	private String equipamentoOperanteRessalvaNao;
+	private String tipoOs;
 
 	public Manutencao() {
 		
 	}
-	
+
 	
 
-	public Manutencao(String tipoManutencao, Usuario usuario, Inventario inventario, String data, String observacoes) {
+
+
+
+	public Manutencao(@NotNull Inventario inventario, @NotNull String data, String descricaoDetalhadaServico,
+			String descricaoDetalhadaAprovador, String descricaoDetalhadaExecutor, Boolean falhaEquipamento,
+			Boolean falhaAcessorio, Boolean manutencaoPreventiva, Boolean manutencaoCorretiva, Boolean calibracao,
+			Boolean treinamento, Boolean instalacao, Long usuarioServico, Long usuarioAprovador, Long usuarioExecutor,
+			int aprovado, String manutencaoLocalRetiradaExterna, String equipamentoOperanteRessalvaNao, String tipoOs) {
 		super();
-		this.tipoManutencao = tipoManutencao;
-		this.usuario = usuario;
 		this.inventario = inventario;
 		this.data = data;
-		this.observacoes = observacoes;
+		this.descricaoDetalhadaServico = descricaoDetalhadaServico;
+		this.descricaoDetalhadaAprovador = descricaoDetalhadaAprovador;
+		this.descricaoDetalhadaExecutor = descricaoDetalhadaExecutor;
+		this.falhaEquipamento = falhaEquipamento;
+		this.falhaAcessorio = falhaAcessorio;
+		this.manutencaoPreventiva = manutencaoPreventiva;
+		this.manutencaoCorretiva = manutencaoCorretiva;
+		this.calibracao = calibracao;
+		this.treinamento = treinamento;
+		this.instalacao = instalacao;
+		this.usuarioServico = usuarioServico;
+		this.usuarioAprovador = usuarioAprovador;
+		this.usuarioExecutor = usuarioExecutor;
+		this.aprovado = aprovado;
+		this.manutencaoLocalRetiradaExterna = manutencaoLocalRetiradaExterna;
+		this.equipamentoOperanteRessalvaNao = equipamentoOperanteRessalvaNao;
+		this.tipoOs = tipoOs;
 	}
+
+
+
+
+
+
+	public Boolean getTreinamento() {
+		return treinamento;
+	}
+
+
+
+
+
+
+	public void setTreinamento(Boolean treinamento) {
+		this.treinamento = treinamento;
+	}
+
+
+
 
 
 
@@ -64,22 +118,6 @@ public class Manutencao implements Serializable{
 		this.id = id;
 	}
 
-	public String getTipoManutencao() {
-		return tipoManutencao;
-	}
-
-	public void setTipoManutencao(String tipoManutencao) {
-		this.tipoManutencao = tipoManutencao;
-	}
-
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
-
 	public Inventario getInventario() {
 		return inventario;
 	}
@@ -96,14 +134,142 @@ public class Manutencao implements Serializable{
 		this.data = data;
 	}
 
-	public String getObservacoes() {
-		return observacoes;
+	public String getDescricaoDetalhadaServico() {
+		return descricaoDetalhadaServico;
 	}
 
-	public void setObservacoes(String observacoes) {
-		this.observacoes = observacoes;
+	public void setDescricaoDetalhadaServico(String descricaoDetalhadaServico) {
+		this.descricaoDetalhadaServico = descricaoDetalhadaServico;
+	}
+
+	public String getDescricaoDetalhadaAprovador() {
+		return descricaoDetalhadaAprovador;
+	}
+
+	public void setDescricaoDetalhadaAprovador(String descricaoDetalhadaAprovador) {
+		this.descricaoDetalhadaAprovador = descricaoDetalhadaAprovador;
+	}
+
+	public String getDescricaoDetalhadaExecutor() {
+		return descricaoDetalhadaExecutor;
+	}
+
+	public void setDescricaoDetalhadaExecutor(String descricaoDetalhadaExecutor) {
+		this.descricaoDetalhadaExecutor = descricaoDetalhadaExecutor;
+	}
+
+	public Boolean getFalhaEquipamento() {
+		return falhaEquipamento;
+	}
+
+	public void setFalhaEquipamento(Boolean falhaEquipamento) {
+		this.falhaEquipamento = falhaEquipamento;
+	}
+
+	public Boolean getFalhaAcessorio() {
+		return falhaAcessorio;
+	}
+
+	public void setFalhaAcessorio(Boolean falhaAcessorio) {
+		this.falhaAcessorio = falhaAcessorio;
+	}
+
+	public Boolean getManutencaoPreventiva() {
+		return manutencaoPreventiva;
+	}
+
+	public void setManutencaoPreventiva(Boolean manutencaoPreventiva) {
+		this.manutencaoPreventiva = manutencaoPreventiva;
+	}
+
+	public Boolean getManutencaoCorretiva() {
+		return manutencaoCorretiva;
+	}
+
+	public void setManutencaoCorretiva(Boolean manutencaoCorretiva) {
+		this.manutencaoCorretiva = manutencaoCorretiva;
+	}
+
+	public Boolean getCalibracao() {
+		return calibracao;
+	}
+
+	public void setCalibracao(Boolean calibracao) {
+		this.calibracao = calibracao;
+	}
+
+	public Boolean getInstalacao() {
+		return instalacao;
+	}
+
+	public void setInstalacao(Boolean instalacao) {
+		this.instalacao = instalacao;
+	}
+
+	public Long getUsuarioServico() {
+		return usuarioServico;
+	}
+
+	public void setUsuarioServico(Long usuarioServico) {
+		this.usuarioServico = usuarioServico;
+	}
+
+	public Long getUsuarioAprovador() {
+		return usuarioAprovador;
+	}
+
+	public void setUsuarioAprovador(Long usuarioAprovador) {
+		this.usuarioAprovador = usuarioAprovador;
+	}
+
+	public Long getUsuarioExecutor() {
+		return usuarioExecutor;
+	}
+
+	public void setUsuarioExecutor(Long usuarioExecutor) {
+		this.usuarioExecutor = usuarioExecutor;
+	}
+
+	public int getAprovado() {
+		return aprovado;
+	}
+
+	public void setAprovado(int aprovado) {
+		this.aprovado = aprovado;
+	}
+
+	public String getManutencaoLocalRetiradaExterna() {
+		return manutencaoLocalRetiradaExterna;
+	}
+
+	public void setManutencaoLocalRetiradaExterna(String manutencaoLocalRetiradaExterna) {
+		this.manutencaoLocalRetiradaExterna = manutencaoLocalRetiradaExterna;
+	}
+
+	public String getEquipamentoOperanteRessalvaNao() {
+		return equipamentoOperanteRessalvaNao;
+	}
+
+	public void setEquipamentoOperanteRessalvaNao(String equipamentoOperanteRessalvaNao) {
+		this.equipamentoOperanteRessalvaNao = equipamentoOperanteRessalvaNao;
+	}
+
+	public String getTipoOs() {
+		return tipoOs;
+	}
+
+	public void setTipoOs(String tipoOs) {
+		this.tipoOs = tipoOs;
 	}
 	
+	
+	
+	
+
+	
+	
+	
+
 	
 	
 	
