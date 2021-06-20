@@ -113,6 +113,7 @@ public class ManutencaoService {
 		        objAlterado.setAprovado(1);
 		        objAlterado.setInstalacao(obj.getInstalacao());
 		        objAlterado.setManutencaoPreventiva(obj.getManutencaoPreventiva());
+		        objAlterado.setSegurancaEletrica(obj.getSegurancaEletrica());
 		        objAlterado.setManutencaoCorretiva(obj.getManutencaoCorretiva());
 		        objAlterado.setTreinamento(obj.getTreinamento());
 		        objAlterado.setCalibracao(obj.getCalibracao());

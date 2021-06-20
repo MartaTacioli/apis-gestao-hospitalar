@@ -32,6 +32,8 @@ public class Manutencao implements Serializable{
 	private Boolean falhaAcessorio;
 	private Boolean manutencaoPreventiva;
 	private Boolean manutencaoCorretiva;
+	private Boolean segurancaEletrica;
+
 	private Boolean calibracao;
 	private Boolean treinamento;
 	private Boolean instalacao;
@@ -52,11 +54,15 @@ public class Manutencao implements Serializable{
 
 
 
+
+
+
 	public Manutencao(@NotNull Inventario inventario, @NotNull String data, String descricaoDetalhadaServico,
 			String descricaoDetalhadaAprovador, String descricaoDetalhadaExecutor, Boolean falhaEquipamento,
-			Boolean falhaAcessorio, Boolean manutencaoPreventiva, Boolean manutencaoCorretiva, Boolean calibracao,
-			Boolean treinamento, Boolean instalacao, Long usuarioServico, Long usuarioAprovador, Long usuarioExecutor,
-			int aprovado, String manutencaoLocalRetiradaExterna, String equipamentoOperanteRessalvaNao, String tipoOs) {
+			Boolean falhaAcessorio, Boolean manutencaoPreventiva, Boolean manutencaoCorretiva,
+			Boolean segurancaEletrica, Boolean calibracao, Boolean treinamento, Boolean instalacao, Long usuarioServico,
+			Long usuarioAprovador, Long usuarioExecutor, int aprovado, String manutencaoLocalRetiradaExterna,
+			String equipamentoOperanteRessalvaNao, String tipoOs) {
 		super();
 		this.inventario = inventario;
 		this.data = data;
@@ -67,6 +73,7 @@ public class Manutencao implements Serializable{
 		this.falhaAcessorio = falhaAcessorio;
 		this.manutencaoPreventiva = manutencaoPreventiva;
 		this.manutencaoCorretiva = manutencaoCorretiva;
+		this.segurancaEletrica = segurancaEletrica;
 		this.calibracao = calibracao;
 		this.treinamento = treinamento;
 		this.instalacao = instalacao;
@@ -78,6 +85,9 @@ public class Manutencao implements Serializable{
 		this.equipamentoOperanteRessalvaNao = equipamentoOperanteRessalvaNao;
 		this.tipoOs = tipoOs;
 	}
+
+
+
 
 
 
@@ -260,6 +270,24 @@ public class Manutencao implements Serializable{
 
 	public void setTipoOs(String tipoOs) {
 		this.tipoOs = tipoOs;
+	}
+
+
+
+
+
+
+	public Boolean getSegurancaEletrica() {
+		return segurancaEletrica;
+	}
+
+
+
+
+
+
+	public void setSegurancaEletrica(Boolean segurancaEletrica) {
+		this.segurancaEletrica = segurancaEletrica;
 	}
 	
 	
