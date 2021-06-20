@@ -35,7 +35,11 @@ public class ManutencaoResource {
 		List<Manutencao> obj = service.findAllByUsuario(cpf);
 		return ResponseEntity.ok().body(obj);
 	}
-
+	@GetMapping(value = "/usuario-servico/{cpf}")
+	public ResponseEntity<List<Manutencao>> findAllByUsuarioServico(@PathVariable Long cpf){
+		List<Manutencao> obj = service.findAllByUsuarioServico(cpf);
+		return ResponseEntity.ok().body(obj);
+	}
 
 	@GetMapping(value = "/inventario/{id}")
 	public ResponseEntity<List<Manutencao>> findAllByInventario(@PathVariable Long id){

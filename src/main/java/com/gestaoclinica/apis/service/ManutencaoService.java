@@ -39,9 +39,16 @@ public class ManutencaoService {
 		Usuario usuario = new Usuario();
 		usuario.setCpf(cpf);
 		
-		return repository.findAllByUsuarioExecutor(usuario);
+		return repository.findAllByUsuarioExecutor(cpf);
 
 	}
+	public List<Manutencao> findAllByUsuarioServico(Long cpf) {
+		
+		return repository.findAllByUsuarioServico(cpf);
+
+	}
+	
+	
 	public List<Manutencao> findAllByInventario(Long id) {
 		Inventario inventario = new Inventario();
 		inventario.setId(id);
