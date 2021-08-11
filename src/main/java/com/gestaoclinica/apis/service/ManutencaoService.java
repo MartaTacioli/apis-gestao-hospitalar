@@ -1,5 +1,7 @@
 package com.gestaoclinica.apis.service;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -118,6 +120,7 @@ public class ManutencaoService {
 		        objAlterado = objManutencao.get();
 		        objAlterado.setManutencaoLocalRetiradaExterna(obj.getManutencaoLocalRetiradaExterna());
 		        objAlterado.setAprovado(1);
+		        objAlterado.setDataAprovacao(new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(new Date()));
 		        objAlterado.setInstalacao(obj.getInstalacao());
 		        objAlterado.setManutencaoPreventiva(obj.getManutencaoPreventiva());
 		        objAlterado.setSegurancaEletrica(obj.getSegurancaEletrica());
@@ -144,5 +147,32 @@ public class ManutencaoService {
 		}
 	}
 	
+	public Manutencao realizarManutencao (Manutencao obj) {
+		try {
 
+			Optional<Manutencao> objManutencao = repository.findById(obj.getId());
+
+		        Manutencao objAlterado = new Manutencao();
+		        objAlterado = objManutencao.get();
+		       
+		        objAlterado.setAprovado(3);
+		        objAlterado.setUsuarioExecutor(obj.getUsuarioExecutor());
+		        objAlterado.setUsuarioExecutor(obj.getUsuarioExecutor());
+		        objAlterado.setDataManutencao(new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(new Date()));
+		        objAlterado.setComentarioExecutorManutencaoCorretiva(obj.getComentarioExecutorManutencaoCorretiva());
+		        objAlterado.setComentarioExecutorManutencaoPreventiva(obj.getComentarioExecutorManutencaoPreventiva());
+		        objAlterado.setComentarioExecutorManutencaoSegurancaEletrica(obj.getComentarioExecutorManutencaoSegurancaEletrica());
+			return repository.save(objAlterado);
+
+		} catch (TransactionSystemException e) {
+
+			throw new ViolacaoDeChaveException("Existem campos vazios!");
+
+		} catch (EntityNotFoundException e) {
+			throw new RecursoNaoEncontradoException("O recurso a ser aprovado nao existe na base. Atualize a pagina e tente novamente.", null);
+		} catch (RuntimeException e) {
+			e.printStackTrace();
+			throw new ErroNaoMapeadoException("Erro nao mapeado na aprovacao de funcionarios.");
+		}
+	}
 }

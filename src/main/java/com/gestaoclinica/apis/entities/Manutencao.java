@@ -33,17 +33,22 @@ public class Manutencao implements Serializable{
 	private Boolean manutencaoPreventiva;
 	private Boolean manutencaoCorretiva;
 	private Boolean segurancaEletrica;
-
+	private String dataManutencao;
+	private String dataAprovacao;
 	private Boolean calibracao;
 	private Boolean treinamento;
 	private Boolean instalacao;
 	private Long usuarioServico;
 	private Long usuarioAprovador;
-	private Long usuarioExecutor;
 	private int aprovado;
 	private String manutencaoLocalRetiradaExterna;
 	private String equipamentoOperanteRessalvaNao;
 	private String tipoOs;
+	private Long usuarioExecutor;
+	private String comentarioExecutorManutencaoCorretiva;
+	private String comentarioExecutorManutencaoPreventiva;
+	private String comentarioExecutorManutencaoSegurancaEletrica;
+
 
 	public Manutencao() {
 		
@@ -288,6 +293,126 @@ public class Manutencao implements Serializable{
 
 	public void setSegurancaEletrica(Boolean segurancaEletrica) {
 		this.segurancaEletrica = segurancaEletrica;
+	}
+
+
+
+
+
+
+
+
+
+	public String getDataManutencao() {
+		return dataManutencao;
+	}
+
+
+
+
+
+
+
+
+
+	public String getComentarioExecutorManutencaoCorretiva() {
+		return comentarioExecutorManutencaoCorretiva;
+	}
+
+
+
+
+
+
+
+
+
+	public void setComentarioExecutorManutencaoCorretiva(String comentarioExecutorManutencaoCorretiva) {
+		this.comentarioExecutorManutencaoCorretiva = comentarioExecutorManutencaoCorretiva;
+	}
+
+
+
+
+
+
+
+
+
+	public String getComentarioExecutorManutencaoPreventiva() {
+		return comentarioExecutorManutencaoPreventiva;
+	}
+
+
+
+
+
+
+
+
+
+	public void setComentarioExecutorManutencaoPreventiva(String comentarioExecutorManutencaoPreventiva) {
+		this.comentarioExecutorManutencaoPreventiva = comentarioExecutorManutencaoPreventiva;
+	}
+
+
+
+
+
+
+
+
+
+	public String getComentarioExecutorManutencaoSegurancaEletrica() {
+		return comentarioExecutorManutencaoSegurancaEletrica;
+	}
+
+
+
+
+
+
+
+
+
+	public String getDataAprovacao() {
+		return dataAprovacao;
+	}
+
+
+
+
+
+
+
+
+
+	public void setDataAprovacao(String dataAprovacao) {
+		this.dataAprovacao = dataAprovacao;
+	}
+
+
+
+
+
+
+
+
+
+	public void setComentarioExecutorManutencaoSegurancaEletrica(String comentarioExecutorManutencaoSegurancaEletrica) {
+		this.comentarioExecutorManutencaoSegurancaEletrica = comentarioExecutorManutencaoSegurancaEletrica;
+	}
+
+
+
+
+
+
+
+
+
+	public void setDataManutencao(String dataManutencao) {
+		this.dataManutencao = dataManutencao;
 	}
 	
 	
