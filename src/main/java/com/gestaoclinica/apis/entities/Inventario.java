@@ -53,6 +53,8 @@ public class Inventario implements Serializable {
 	private Boolean utilizaAcessorios;
 	private String quaisAcessorios;
 	private String alimentacaoEletrica;
+	private String patrimonio;
+
 	private String registroAnvisa;
 	private Date anoFabricacao;
 	private String peso;

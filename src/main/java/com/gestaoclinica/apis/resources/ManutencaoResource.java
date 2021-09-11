@@ -35,6 +35,11 @@ public class ManutencaoResource {
 		List<Manutencao> obj = service.findAllByUsuario(cpf);
 		return ResponseEntity.ok().body(obj);
 	}
+	@GetMapping(value = "/usuario-dono/{cpf}")
+	public ResponseEntity<List<Manutencao>> findAllByDono(@PathVariable Long cpf){
+		List<Manutencao> obj = service.findAllByDono(cpf);
+		return ResponseEntity.ok().body(obj);
+	}
 	@GetMapping(value = "/usuario-servico/{cpf}")
 	public ResponseEntity<List<Manutencao>> findAllByUsuarioServico(@PathVariable Long cpf){
 		List<Manutencao> obj = service.findAllByUsuarioServico(cpf);
