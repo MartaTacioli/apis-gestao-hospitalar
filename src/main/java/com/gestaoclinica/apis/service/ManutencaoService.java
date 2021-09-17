@@ -168,8 +168,11 @@ public class ManutencaoService {
 		        objAlterado.setDataManutencao(new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(new Date()));
 		        objAlterado.setComentarioExecutorManutencaoCorretiva(obj.getComentarioExecutorManutencaoCorretiva());
 		        objAlterado.setComentarioExecutorManutencaoPreventiva(obj.getComentarioExecutorManutencaoPreventiva());
-		        objAlterado.setComentarioExecutorManutencaoSegurancaEletrica(obj.getComentarioExecutorManutencaoSegurancaEletrica());
-			return repository.save(objAlterado);
+		        objAlterado.setComentarioExecutorInstalacao(obj.getComentarioExecutorInstalacao());
+		        objAlterado.setComentarioExecutorTreinamento(obj.getComentarioExecutorTreinamento());
+		        objAlterado.setComentarioExecutorSegurancaEletrica(obj.getComentarioExecutorSegurancaEletrica());
+		        objAlterado.setComentarioExecutorManutencaoCalibracao(obj.getComentarioExecutorManutencaoCalibracao());
+		        return repository.save(objAlterado);
 
 		} catch (TransactionSystemException e) {
 

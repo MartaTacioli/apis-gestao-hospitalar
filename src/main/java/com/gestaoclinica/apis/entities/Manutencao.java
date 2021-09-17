@@ -45,9 +45,13 @@ public class Manutencao implements Serializable{
 	private String equipamentoOperanteRessalvaNao;
 	private String tipoOs;
 	private Long usuarioExecutor;
-	private String comentarioExecutorManutencaoCorretiva;
+	private String comentarioExecutorInstalacao;
 	private String comentarioExecutorManutencaoPreventiva;
-	private String comentarioExecutorManutencaoSegurancaEletrica;
+	private String comentarioExecutorTreinamento;
+	private String comentarioExecutorManutencaoCorretiva;
+	private String comentarioExecutorManutencaoCalibracao;
+	private String comentarioExecutorSegurancaEletrica;
+;
 
 
 	public Manutencao() {
@@ -102,6 +106,102 @@ public class Manutencao implements Serializable{
 	public Boolean getTreinamento() {
 		return treinamento;
 	}
+
+
+
+
+
+
+	public String getComentarioExecutorInstalacao() {
+		return comentarioExecutorInstalacao;
+	}
+
+
+
+
+
+
+
+
+
+	public void setComentarioExecutorInstalacao(String comentarioExecutorInstalacao) {
+		this.comentarioExecutorInstalacao = comentarioExecutorInstalacao;
+	}
+
+
+
+
+
+
+
+
+
+	public String getComentarioExecutorTreinamento() {
+		return comentarioExecutorTreinamento;
+	}
+
+
+
+
+
+
+
+
+
+	public void setComentarioExecutorTreinamento(String comentarioExecutorTreinamento) {
+		this.comentarioExecutorTreinamento = comentarioExecutorTreinamento;
+	}
+
+
+
+
+
+
+
+
+
+	public String getComentarioExecutorManutencaoCalibracao() {
+		return comentarioExecutorManutencaoCalibracao;
+	}
+
+
+
+
+
+
+
+
+
+	public void setComentarioExecutorManutencaoCalibracao(String comentarioExecutorManutencaoCalibracao) {
+		this.comentarioExecutorManutencaoCalibracao = comentarioExecutorManutencaoCalibracao;
+	}
+
+
+
+
+
+
+
+
+
+	public String getComentarioExecutorSegurancaEletrica() {
+		return comentarioExecutorSegurancaEletrica;
+	}
+
+
+
+
+
+
+
+
+
+	public void setComentarioExecutorSegurancaEletrica(String comentarioExecutorSegurancaEletrica) {
+		this.comentarioExecutorSegurancaEletrica = comentarioExecutorSegurancaEletrica;
+	}
+
+
+
 
 
 
@@ -363,10 +463,6 @@ public class Manutencao implements Serializable{
 
 
 
-	public String getComentarioExecutorManutencaoSegurancaEletrica() {
-		return comentarioExecutorManutencaoSegurancaEletrica;
-	}
-
 
 
 
@@ -391,17 +487,6 @@ public class Manutencao implements Serializable{
 		this.dataAprovacao = dataAprovacao;
 	}
 
-
-
-
-
-
-
-
-
-	public void setComentarioExecutorManutencaoSegurancaEletrica(String comentarioExecutorManutencaoSegurancaEletrica) {
-		this.comentarioExecutorManutencaoSegurancaEletrica = comentarioExecutorManutencaoSegurancaEletrica;
-	}
 
 
 
