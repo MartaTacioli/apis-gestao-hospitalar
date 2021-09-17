@@ -125,6 +125,7 @@ public class ManutencaoService {
 
 		        Manutencao objAlterado = new Manutencao();
 		        objAlterado = objManutencao.get();
+		        objAlterado.setUsuarioAprovador(obj.getUsuarioAprovador());
 		        objAlterado.setManutencaoLocalRetiradaExterna(obj.getManutencaoLocalRetiradaExterna());
 		        objAlterado.setAprovado(1);
 		        objAlterado.setDataAprovacao(new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(new Date()));
