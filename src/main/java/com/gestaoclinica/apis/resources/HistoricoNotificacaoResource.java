@@ -13,41 +13,39 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.gestaoclinica.apis.entities.EntregaDinamica;
-import com.gestaoclinica.apis.service.EntregaDinamicaService;
+import com.gestaoclinica.apis.entities.HistoricoNotificacao;
+import com.gestaoclinica.apis.service.HistoricoNotificacaoService;
 
 @RestController
-@RequestMapping (value = "/entrega-dinamica")
-public class EntregaDinamicaResource {
-
+@RequestMapping (value = "/historico-notificacao")
+public class HistoricoNotificacaoResource {
+	
 	@Autowired
-	private EntregaDinamicaService service;
-	
+	private HistoricoNotificacaoService service;
 	
 
-	@GetMapping(value = "/{cnpj}")
-	public ResponseEntity<List<EntregaDinamica>> findAllByCnpjTransportadora(@PathVariable long cnpj){
-		List<EntregaDinamica> obj = service.findAllByCnpjTransportadora(cnpj);
-		
+	@GetMapping(value = "/usuario/{cpf}")
+	public ResponseEntity<List<HistoricoNotificacao>> findAllByUsuario(@PathVariable Long cpf){
+		List<HistoricoNotificacao> obj = service.findAllByUsuario(cpf);
 		return ResponseEntity.ok().body(obj);
 	}
 
 	@PostMapping
-	public ResponseEntity<EntregaDinamica> insert (@RequestBody EntregaDinamica obj){
+	public ResponseEntity<HistoricoNotificacao> insert (@RequestBody HistoricoNotificacao obj){
 		obj = service.insert(obj);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-				  .buildAndExpand(obj.getId()).toUri();
+				  .buildAndExpand(obj).toUri();
 		return ResponseEntity.created(uri).body(obj);
 	}
-	
-	
+
 	@PostMapping(value = "/deletar")
-	public ResponseEntity<EntregaDinamica> delete (@RequestBody EntregaDinamica obj){
+	public ResponseEntity<HistoricoNotificacao> delete (@RequestBody HistoricoNotificacao obj){
 		obj = service.delete(obj);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
 				  .buildAndExpand(obj).toUri();
 		return ResponseEntity.created(uri).body(obj);
 	}
+	
 	
 
 }
