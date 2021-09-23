@@ -272,6 +272,12 @@ public class Inventario implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+	public String getPatrimonio() {
+		return patrimonio;
+	}
+	public void setPatrimonio(String patrimonio) {
+		this.patrimonio = patrimonio;
+	}
 	
 	
 	

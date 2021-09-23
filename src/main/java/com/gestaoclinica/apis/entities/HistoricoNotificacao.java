@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -18,10 +19,12 @@ public class HistoricoNotificacao implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+	@OneToOne
+
 	private Usuario usuario;
 	
-	private Inventario inventario;
+	@OneToOne
+	private Manutencao manutencao;
 	
 	private String data = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(new Date());
 
@@ -46,13 +49,12 @@ public class HistoricoNotificacao implements Serializable {
 	}
 
 
-
-	public Inventario getInventario() {
-		return inventario;
+	public Manutencao getManutencao() {
+		return manutencao;
 	}
 
-	public void setInventario(Inventario inventario) {
-		this.inventario = inventario;
+	public void setManutencao(Manutencao manutencao) {
+		this.manutencao = manutencao;
 	}
 
 	public String getMensagem() {

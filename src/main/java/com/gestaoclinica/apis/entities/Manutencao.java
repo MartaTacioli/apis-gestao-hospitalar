@@ -51,7 +51,7 @@ public class Manutencao implements Serializable{
 	private String comentarioExecutorManutencaoCorretiva;
 	private String comentarioExecutorManutencaoCalibracao;
 	private String comentarioExecutorSegurancaEletrica;
-;
+
 
 
 	public Manutencao() {

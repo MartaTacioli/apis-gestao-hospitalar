@@ -1,5 +1,6 @@
 package com.gestaoclinica.apis.resources;
 
+import java.io.IOException;
 import java.net.URI;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -33,7 +34,7 @@ public class HistoricoNotificacaoResource {
 	}
 
 	@PostMapping
-	public ResponseEntity<HistoricoNotificacao> insert (@RequestBody HistoricoNotificacao obj){
+	public ResponseEntity<HistoricoNotificacao> insert (@RequestBody HistoricoNotificacao obj) throws IOException{
 		obj.setData(new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(new Date()));
 		obj = service.insert(obj);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
