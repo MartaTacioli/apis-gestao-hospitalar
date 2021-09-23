@@ -1,6 +1,8 @@
 package com.gestaoclinica.apis.resources;
 
 import java.net.URI;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +34,7 @@ public class HistoricoNotificacaoResource {
 
 	@PostMapping
 	public ResponseEntity<HistoricoNotificacao> insert (@RequestBody HistoricoNotificacao obj){
+		obj.setData(new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(new Date()));
 		obj = service.insert(obj);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
 				  .buildAndExpand(obj).toUri();

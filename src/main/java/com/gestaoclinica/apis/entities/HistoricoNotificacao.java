@@ -70,6 +70,14 @@ public class HistoricoNotificacao implements Serializable {
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
+
+	public String getData() {
+		return data;
+	}
+
+	public void setData(String data) {
+		this.data = data;
+	}
 	
 	
 }
