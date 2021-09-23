@@ -13,7 +13,7 @@ import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table(name = "TB_NOTIFICACAO", uniqueConstraints=
-@UniqueConstraint(columnNames={"usuario", "chaveFirebase"}))
+@UniqueConstraint(columnNames={"usuario"}))
 public class Notificacao implements Serializable {
 	private static final long serialVersionUID = 1L;
 
